@@ -1,0 +1,266 @@
+body {
+    background-image:
+        url('/images/ore-gray-1600.webp'),
+        url('/images/elia-clerici-XIrIWKCQykg-unsplash.webp');
+    background-repeat: no-repeat, repeat;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: normal, lighten;
+    background-attachment: fixed;
+    background-size: 150vh, 100%;
+    min-height: 50vh;
+}
+
+div.linkdiv {
+    margin: auto;
+    width: 1000px;
+    max-width: 100%;
+}
+
+ul.topul {
+    list-style: none;
+    margin: 10px;
+    text-align: center;
+
+    li {
+        display: inline;
+        margin: 10px;
+    }
+}
+
+ul.linkul {
+    list-style: none;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+        display: inline-block;
+        margin: 10px;
+    }
+}
+
+li.linkli {
+    display: inline-block;
+    margin: 10px;
+}
+
+img.linkbutton {
+    width: 180px;
+    height: 60px;
+}
+
+div.logobox {
+    position: relative;
+    width: 720px;
+    margin: 50px auto;
+}
+
+img.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+h1.cvtitle {
+    letter-spacing: 2em;
+    text-align: center;
+}
+
+div.cvsignature {
+    text-align: right;
+    width: 187mm;
+}
+
+div.cvbox {
+    width: 210mm;
+}
+
+div.about {
+    margin: 30px;
+}
+
+@mixin tablerow {
+    border-style: solid;
+    border-color: black;
+    border-width: 0 1px 1px 1px;
+    width: 190mm;
+    align-items: center;
+
+    &:first-child {
+        border-top-width: 1px;
+    }
+}
+
+@mixin tabletitle {
+    border-style: solid;
+    border-color: black;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    width: 15%;
+    padding: 1em;
+
+    word-wrap: normal;
+}
+
+div.divbox {
+    font-size: 0.75em;
+
+    div.divcvtable {
+        width: 190mm;
+        margin-bottom: 4px;
+
+        div.divcvtablerow {
+            @include tablerow;
+            display: table;
+
+            &:first-child {
+                border-top-width: 1px;
+            }
+        }
+
+        div.divtablecvtitle {
+            @include tabletitle;
+            display: table-cell;
+
+            &:first-child {
+                border-left-width: 0;
+            }
+        }
+
+        div.divtablecvbody {
+            display: table-cell;
+            padding: 1em;
+        }
+    }
+
+    div.divtable {
+        @include tablerow;
+        display: flex;
+
+        &:first-child {
+            border-top-width: 1px;
+        }
+
+        div.divtabletitle {
+            @include tabletitle;
+            display: block;
+            flex-basis: 5%;
+            flex-grow: 1;
+            border-right-width: 0;
+
+            &:first-child {
+                border-left-width: 0;
+            }
+        }
+
+        div.divtablebody {
+            display: block;
+            padding: 1em;
+            width: 85%;
+            flex-basis: 5%;
+            flex-grow: 19;
+            border-style: solid;
+            border-top-width: 0;
+            border-bottom-width: 0;
+            border-right-width: 0;
+            border-left-width: 1px;
+        }
+    }
+}
+
+
+@media only screen and (orientation: portrait) {
+    body {
+        margin: 0;
+        overflow-x: hidden;
+        background-size: cover, cover;
+        background-position: right top, right bottom;
+        background-repeat: no-repeat, no-repeat;
+        background-attachment: fixed, fixed;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        background-size: 100vh, cover;
+        background-position: right top;
+    }
+
+    ul.topul {
+        width: 90%;
+
+        li {
+            float: left;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+    }
+
+    div.logobox {
+        margin: 50px auto;
+        max-width: 95vw;
+        height: auto;
+        text-align: center;
+    }
+
+    img.logo {
+        max-width: 90vw;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    div.linkdiv {
+        margin: auto;
+        width: 100%;
+        max-width: 550px;
+    }
+
+    ul.linkul {
+        list-style: none;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+
+        /* Flex properties inherited from desktop, will naturally wrap */
+    }
+
+    img.linkbutton {
+        width: 240px;
+        height: 100px;
+    }
+}
+
+a.linkbutton-anchor {
+    text-decoration: none;
+    color: inherit;
+}
+
+div.linkbutton-css {
+    width: 240px;
+    height: 100px;
+    background-color: white;
+    border: 10px solid #888;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: normal;
+    transition: transform 0.1s;
+    color: #444;
+    font-family: 'Knewave', cursive;
+    font-size: 2rem;
+
+    &:hover {
+        transform: scale(1.05);
+        background-color: #f0f0f0;
+    }
+}
