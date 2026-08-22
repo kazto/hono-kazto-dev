@@ -13,7 +13,6 @@ export type CurriculumVitaeEntry = {
     from_date: string
     to_date: string
     belongs_to: string
-    period: string
     title: string
     role: string
     skill: string
@@ -21,11 +20,20 @@ export type CurriculumVitaeEntry = {
     description: Array<string>
 }
 
+export type CurriculumVitaeSkill = {
+    core: string
+    web: string
+    platform: string
+    ai: string
+}
+
 export type CurriculumVitaeData = {
     speciality: string
-    skill: string
+    // データ側がカテゴリ別オブジェクトへ移行済み。旧形式の文字列も受け付ける
+    skill: CurriculumVitaeSkill | string
     business: string
     self_recommend: Array<string>
+    region_of_interest: Array<string>
     curriculum_vitae: Array<CurriculumVitaeEntry>
 }
 
