@@ -112,6 +112,15 @@ div.about {
 div.divbox {
     font-size: 0.75em;
 
+    div.divcvgroup {
+        margin-bottom: 12px;
+        break-inside: avoid;
+    }
+
+    div.divcvgroupheader div.divtablecvbody {
+        font-weight: bold;
+    }
+
     div.divcvtable {
         width: 190mm;
         margin-bottom: 4px;

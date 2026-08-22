@@ -1,4 +1,4 @@
-import { CVBody, getPeriod } from './components/CVBody'
+import { CVBody, groupByBelongsTo } from './components/CVBody'
 import { CVHeader } from './components/CVHeader'
 import type { CurriculumVitaeData, CurriculumVitaeProps } from './interfaces'
 
@@ -6,14 +6,7 @@ const CurriculumVitaePage = ({ data, build_date }: CurriculumVitaeProps) => {
     const { curriculum_vitae } = data as CurriculumVitaeData
 
     const listBase = CVHeader({ data, build_date })
-    const listCV = CVBody(
-        curriculum_vitae.map((v) => {
-            return {
-                ...v,
-                period: getPeriod(v.from_date, v.to_date),
-            }
-        })
-    )
+    const listCV = CVBody(groupByBelongsTo(curriculum_vitae).reverse())
 
     return (
         <div className="cvbox">
@@ -26,7 +19,7 @@ const CurriculumVitaePage = ({ data, build_date }: CurriculumVitaeProps) => {
             <div className="divbox">
                 {listBase}
                 <h2>職務経歴</h2>
-                {listCV.reverse()}
+                {listCV}
             </div>
         </div>
     )
