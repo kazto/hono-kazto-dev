@@ -1,3 +1,7 @@
+$a4width: 205mm;
+$basicmargin: 10px;
+$basicborderwidth: 1px;
+
 body {
     background-image:
         url('/images/ore-gray-1600.webp'),
@@ -18,18 +22,18 @@ div.linkdiv {
 
 ul.topul {
     list-style: none;
-    margin: 10px;
+    margin: $basicmargin;
     text-align: center;
 
     li {
         display: inline;
-        margin: 10px;
+        margin: $basicmargin;
     }
 }
 
 ul.linkul {
     list-style: none;
-    margin: 10px auto;
+    margin: $basicmargin auto;
     text-align: center;
     width: 100%;
     padding: 0;
@@ -39,13 +43,13 @@ ul.linkul {
 
     li {
         display: inline-block;
-        margin: 10px;
+        margin: $basicmargin;
     }
 }
 
 li.linkli {
     display: inline-block;
-    margin: 10px;
+    margin: $basicmargin;
 }
 
 img.linkbutton {
@@ -77,7 +81,7 @@ div.cvsignature {
 }
 
 div.cvbox {
-    width: 210mm;
+    width: $a4width;
 }
 
 div.about {
@@ -87,12 +91,12 @@ div.about {
 @mixin tablerow {
     border-style: solid;
     border-color: black;
-    border-width: 0 1px 1px 1px;
-    width: 190mm;
+    border-width: 0 $basicborderwidth $basicborderwidth $basicborderwidth;
+    width: $a4width;
     align-items: center;
 
     &:first-child {
-        border-top-width: 1px;
+        border-top-width: $basicborderwidth;
     }
 }
 
@@ -101,8 +105,8 @@ div.about {
     border-color: black;
     border-top-width: 0;
     border-bottom-width: 0;
-    border-left-width: 1px;
-    border-right-width: 1px;
+    border-left-width: $basicborderwidth;
+    border-right-width: $basicborderwidth;
     width: 15%;
     padding: 1em;
 
@@ -115,9 +119,9 @@ div.divbox {
     div.divcvgroup {
         margin-bottom: 12px;
         break-inside: avoid;
-        width: 190mm;
+        width: $a4width;
         box-sizing: border-box;
-        border: 1px solid black;
+        border: $basicborderwidth solid black;
         padding: 8px;
 
         div.divcvgroupheader {
@@ -126,7 +130,7 @@ div.divbox {
 
             div.divcvtablerow {
                 width: 100%;
-                border-width: 0 0 1px 0;
+                border-width: 0 0 $basicborderwidth 0;
 
                 &:first-child {
                     border-top-width: 0;
@@ -148,7 +152,7 @@ div.divbox {
     }
 
     div.divcvtable {
-        width: 190mm;
+        width: $a4width;
         margin-bottom: 4px;
 
         div.divcvtablerow {
@@ -156,7 +160,7 @@ div.divbox {
             display: table;
 
             &:first-child {
-                border-top-width: 1px;
+                border-top-width: $basicborderwidth;
             }
         }
 
@@ -180,7 +184,7 @@ div.divbox {
         display: flex;
 
         &:first-child {
-            border-top-width: 1px;
+            border-top-width: $basicborderwidth;
         }
 
         div.divtabletitle {
@@ -205,7 +209,7 @@ div.divbox {
             border-top-width: 0;
             border-bottom-width: 0;
             border-right-width: 0;
-            border-left-width: 1px;
+            border-left-width: $basicborderwidth;
         }
     }
 }
