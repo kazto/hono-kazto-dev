@@ -115,6 +115,32 @@ div.divbox {
     div.divcvgroup {
         margin-bottom: 12px;
         break-inside: avoid;
+        width: 190mm;
+        box-sizing: border-box;
+        border: 1px solid black;
+        padding: 8px;
+
+        div.divcvgroupheader {
+            margin: -8px -8px 8px -8px;
+            width: auto;
+
+            div.divcvtablerow {
+                width: 100%;
+                border-width: 0 0 1px 0;
+
+                &:first-child {
+                    border-top-width: 0;
+                }
+            }
+        }
+
+        div.divcvtable:not(.divcvgroupheader) {
+            width: 100%;
+
+            div.divcvtablerow {
+                width: 100%;
+            }
+        }
     }
 
     div.divcvgroupheader div.divtablecvbody {
