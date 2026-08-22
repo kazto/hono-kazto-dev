@@ -1,5 +1,6 @@
 import { CVBody, groupByBelongsTo } from './components/CVBody'
 import { CVHeader } from './components/CVHeader'
+import { fetchWithCache } from './lib/fetchWithCache'
 import type { CurriculumVitaeData, CurriculumVitaeProps } from './interfaces'
 
 const CurriculumVitaePage = ({ data, build_date }: CurriculumVitaeProps) => {
@@ -27,12 +28,10 @@ const CurriculumVitaePage = ({ data, build_date }: CurriculumVitaeProps) => {
 
 export async function fetchCVData() {
     const headers = { 'User-Agent': 'hono-kazto-dev' }
-    const res = await fetch('https://raw.githubusercontent.com/kazto/curriculum-vitae/master/curriculum-vitae.json', { headers })
-    if (!res.ok) throw new Error(`Failed to fetch CV json: ${res.statusText}`)
+    const res = await fetchWithCache('https://raw.githubusercontent.com/kazto/curriculum-vitae/master/curriculum-vitae.json', { headers }, 300)
     const data = await res.json()
 
-    const resApi = await fetch('https://api.github.com/repos/kazto/curriculum-vitae/branches/master', { headers })
-    if (!resApi.ok) throw new Error(`Failed to fetch CV api: ${resApi.statusText}`)
+    const resApi = await fetchWithCache('https://api.github.com/repos/kazto/curriculum-vitae/branches/master', { headers }, 300)
     const dataApi = await resApi.json()
     const build_date = dataApi['commit']['commit']['author']['date']
         .replace(/T.*$/, '')
