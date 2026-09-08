@@ -39,7 +39,7 @@ export const groupByBelongsTo = (curriculum_vitae: CurriculumVitaeEntry[]): Curr
             })
         }
     }
-    return groups.reverse()
+    return groups
 }
 
 export const CVBody = (groups: CurriculumVitaeGroup[]) => {
@@ -56,7 +56,7 @@ export const CVBody = (groups: CurriculumVitaeGroup[]) => {
                         </div>
                     </div>
                 </div>
-                {g.entries.map((v, j) => (
+                {g.entries.reverse().map((v, j) => (
                     <div className="divcvtable" key={j.toString()}>
                         <div className="divcvtablerow">
                             <div className="divtablecvtitle">自</div>
