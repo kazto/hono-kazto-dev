@@ -39,7 +39,7 @@ export const groupByBelongsTo = (curriculum_vitae: CurriculumVitaeEntry[]): Curr
             })
         }
     }
-    return groups
+    return groups.reverse()
 }
 
 export const CVBody = (groups: CurriculumVitaeGroup[]) => {
