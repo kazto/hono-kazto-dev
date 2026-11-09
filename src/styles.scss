@@ -1,74 +1,220 @@
+// ===== Modern design system (Top / About) =====
+:root {
+    color-scheme: light;
+    --bg: #f6f5f2;
+    --surface: #ffffff;
+    --text: #232323;
+    --muted: #73706a;
+    --border: #e6e2d9;
+    --accent: #232323;
+    --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', 'Noto Sans JP', -apple-system, 'Hiragino Sans', sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+.site {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.site-brand {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+}
+.site-brand-dot { color: var(--muted); font-weight: 500; }
+
+.site-nav {
+    display: flex;
+    gap: 20px;
+    a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 500;
+        &:hover { color: var(--text); }
+    }
+}
+
+.site-footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: space-between;
+    a { color: var(--muted); }
+}
+
+// Hero (A: minimal portfolio)
+.hero {
+    padding: 48px 0 8px;
+    display: grid;
+    gap: 28px;
+}
+@media (min-width: 720px) {
+    .hero {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+    }
+}
+
+.hero-photo {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+.hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 12px;
+}
+
+.hero-name, .page-title {
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 16px;
+}
+
+.hero-tagline {
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    font-weight: 600;
+    margin: 0 0 12px;
+}
+.hero-tagline-ja { display: block; font-size: 0.95em; color: var(--muted); font-weight: 500; }
+
+.hero-lead { color: var(--muted); max-width: 38em; margin: 0 0 20px; }
+
+.hero-skills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 0 0 24px;
+    li {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        border-radius: 999px;
+        padding: 4px 12px;
+        font-size: 0.82rem;
+        font-weight: 500;
+    }
+}
+
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn-primary, .btn-ghost {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 10px 20px;
+    border-radius: 999px;
+}
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-ghost { border: 1px solid var(--border); background: var(--surface); }
+
+// Bento grid (B)
+.bento-section { margin-top: 44px; }
+
+.bento-heading {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+@media (min-width: 720px) {
+    .bento-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+a.linkbutton-anchor { text-decoration: none; color: inherit; display: block; height: 100%; }
+
+.bento-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    height: 100%;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    &:hover {
+        transform: translateY(-2px);
+        border-color: var(--muted);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+}
+.bento-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.bento-card-title { font-weight: 600; font-size: 0.98rem; }
+.bento-card-arrow { color: var(--muted); font-size: 0.85rem; }
+.bento-card-desc { color: var(--muted); font-size: 0.83rem; margin: 6px 0 0; line-height: 1.5; }
+
+// About
+.about { padding-top: 32px; max-width: 720px; }
+.about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 20px 0;
+    h2 { font-size: 1.05rem; margin: 20px 0 8px; &:first-child { margin-top: 0; } }
+}
+.about-list { margin: 0; padding-left: 1.2em; }
+.vmv { font-size: 1.3rem; font-weight: 700; margin: 4px 0 0; }
+.vmv-ja { color: var(--muted); margin: 0 0 8px; }
+
+// ===== Curriculum Vitae (print-oriented, kept from the original) =====
 $a4width: 205mm;
 $basicmargin: 10px;
 $basicborderwidth: 1px;
-
-body {
-    background-image:
-        url('/images/ore-gray-1600.webp'),
-        url('/images/elia-clerici-XIrIWKCQykg-unsplash.webp');
-    background-repeat: no-repeat, repeat;
-    background-color: rgba(255, 255, 255, 0.5);
-    background-blend-mode: normal, lighten;
-    background-attachment: fixed;
-    background-size: 150vh, 100%;
-    min-height: 50vh;
-}
-
-div.linkdiv {
-    margin: auto;
-    width: 1000px;
-    max-width: 100%;
-}
-
-ul.topul {
-    list-style: none;
-    margin: $basicmargin;
-    text-align: center;
-
-    li {
-        display: inline;
-        margin: $basicmargin;
-    }
-}
-
-ul.linkul {
-    list-style: none;
-    margin: $basicmargin auto;
-    text-align: center;
-    width: 100%;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-        display: inline-block;
-        margin: $basicmargin;
-    }
-}
-
-li.linkli {
-    display: inline-block;
-    margin: $basicmargin;
-}
-
-img.linkbutton {
-    width: 180px;
-    height: 60px;
-}
-
-div.logobox {
-    position: relative;
-    width: 720px;
-    margin: 50px auto;
-}
-
-img.logo {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-}
 
 h1.cvtitle {
     letter-spacing: 2em;
@@ -82,10 +228,8 @@ div.cvsignature {
 
 div.cvbox {
     width: 222mm;
-}
-
-div.about {
-    margin: 30px;
+    background: #ffffff;
+    color: #171717;
 }
 
 @mixin tablerow {
@@ -109,7 +253,6 @@ div.about {
     border-right-width: $basicborderwidth;
     width: 15%;
     padding: 1em;
-
     word-wrap: normal;
 }
 
@@ -223,95 +366,5 @@ div.divbox {
                 }
             }
         }
-    }
-}
-
-
-@media only screen and (orientation: portrait) {
-    body {
-        margin: 0;
-        overflow-x: hidden;
-        background-size: cover, cover;
-        background-position: right top, right bottom;
-        background-repeat: no-repeat, no-repeat;
-        background-attachment: fixed, fixed;
-    }
-}
-
-@media (max-width: 576px) {
-    body {
-        background-size: 100vh, cover;
-        background-position: right top;
-    }
-
-    ul.topul {
-        width: 90%;
-
-        li {
-            float: left;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-    }
-
-    div.logobox {
-        margin: 50px auto;
-        max-width: 95vw;
-        height: auto;
-        text-align: center;
-    }
-
-    img.logo {
-        max-width: 90vw;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-
-    div.linkdiv {
-        margin: auto;
-        width: 100%;
-        max-width: 550px;
-    }
-
-    ul.linkul {
-        list-style: none;
-        margin: 10px auto;
-        text-align: center;
-        width: 100%;
-        padding: 0;
-
-        /* Flex properties inherited from desktop, will naturally wrap */
-    }
-
-    img.linkbutton {
-        width: 240px;
-        height: 100px;
-    }
-}
-
-a.linkbutton-anchor {
-    text-decoration: none;
-    color: inherit;
-}
-
-div.linkbutton-css {
-    width: 240px;
-    height: 100px;
-    background-color: white;
-    border: 10px solid #888;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: normal;
-    transition: transform 0.1s;
-    color: #444;
-    font-family: 'Knewave', cursive;
-    font-size: 2rem;
-
-    &:hover {
-        transform: scale(1.05);
-        background-color: #f0f0f0;
     }
 }
