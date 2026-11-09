@@ -211,26 +211,11 @@ a.linkbutton-anchor { text-decoration: none; color: inherit; display: block; hei
 .vmv { font-size: 1.3rem; font-weight: 700; margin: 4px 0 0; }
 .vmv-ja { color: var(--muted); margin: 0 0 8px; }
 
-// ===== Curriculum Vitae (print-oriented, kept from the original) =====
+// ===== Curriculum Vitae =====
+// Print keeps the original A4 layout verbatim; screen gets a fluid layout.
 $a4width: 205mm;
 $basicmargin: 10px;
 $basicborderwidth: 1px;
-
-h1.cvtitle {
-    letter-spacing: 2em;
-    text-align: center;
-}
-
-div.cvsignature {
-    text-align: right;
-    width: 204mm;
-}
-
-div.cvbox {
-    width: 222mm;
-    background: #ffffff;
-    color: #171717;
-}
 
 @mixin tablerow {
     border-style: solid;
@@ -256,114 +241,291 @@ div.cvbox {
     word-wrap: normal;
 }
 
-div.divbox {
-    font-size: 0.75em;
+@media print {
+    $a4width: 205mm;
+    $basicmargin: 10px;
+    $basicborderwidth: 1px;
 
-    div.divcvgroup {
-        margin-bottom: 12px;
-        break-inside: avoid;
-        width: $a4width;
-        box-sizing: border-box;
-        border: $basicborderwidth solid black;
-        padding: 8px;
+    h1.cvtitle {
+        letter-spacing: 2em;
+        text-align: center;
+    }
 
-        div.divcvgroupheader {
-            margin: -8px -8px 8px -8px;
-            width: auto;
+    div.cvsignature {
+        text-align: right;
+        width: 204mm;
+    }
 
-            div.divcvtablerow {
+    div.cvbox {
+        width: 222mm;
+        background: #ffffff;
+        color: #171717;
+    }
+
+
+
+    div.divbox {
+        font-size: 0.75em;
+
+        div.divcvgroup {
+            margin-bottom: 12px;
+            break-inside: avoid;
+            width: $a4width;
+            box-sizing: border-box;
+            border: $basicborderwidth solid black;
+            padding: 8px;
+
+            div.divcvgroupheader {
+                margin: -8px -8px 8px -8px;
+                width: auto;
+
+                div.divcvtablerow {
+                    width: 100%;
+                    border-width: 0 0 $basicborderwidth 0;
+
+                    &:first-child {
+                        border-top-width: 0;
+                    }
+                }
+            }
+
+            div.divcvtable:not(.divcvgroupheader) {
                 width: 100%;
-                border-width: 0 0 $basicborderwidth 0;
 
-                &:first-child {
-                    border-top-width: 0;
+                div.divcvtablerow {
+                    width: 100%;
                 }
             }
         }
 
-        div.divcvtable:not(.divcvgroupheader) {
-            width: 100%;
+        div.divcvgroupheader div.divtablecvbody {
+            font-weight: bold;
+        }
+
+        div.divcvtable {
+            width: $a4width;
+            margin-bottom: 4px;
 
             div.divcvtablerow {
-                width: 100%;
+                @include tablerow;
+                display: table;
+
+                &:first-child {
+                    border-top-width: $basicborderwidth;
+                }
+            }
+
+            div.divtablecvtitle {
+                @include tabletitle;
+                display: table-cell;
+
+                &:first-child {
+                    border-left-width: 0;
+                }
+            }
+
+            div.divtablecvbody {
+                display: table-cell;
+                padding: 1em;
             }
         }
-    }
 
-    div.divcvgroupheader div.divtablecvbody {
-        font-weight: bold;
-    }
-
-    div.divcvtable {
-        width: $a4width;
-        margin-bottom: 4px;
-
-        div.divcvtablerow {
+        div.divtable {
             @include tablerow;
-            display: table;
+            display: flex;
 
             &:first-child {
                 border-top-width: $basicborderwidth;
             }
+
+            div.divtabletitle {
+                @include tabletitle;
+                display: block;
+                flex-basis: 5%;
+                flex-grow: 1;
+                border-right-width: 0;
+
+                &:first-child {
+                    border-left-width: 0;
+                }
+            }
+
+            div.divtablebody {
+                display: block;
+                padding: 1em;
+                width: 85%;
+                flex-basis: 5%;
+                flex-grow: 19;
+                border-style: solid;
+                border-top-width: 0;
+                border-bottom-width: 0;
+                border-right-width: 0;
+                border-left-width: $basicborderwidth;
+
+                div.divskillrow {
+                    &:not(:first-child) {
+                        margin-top: 0.4em;
+                    }
+
+                    span.divskilllabel {
+                        display: inline-block;
+                        width: 4em;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen {
+    div.cvbox {
+        width: auto;
+        max-width: 920px;
+        margin: 24px auto;
+        background: var(--surface);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 36px 32px 48px;
+    }
+
+    h1.cvtitle {
+        letter-spacing: 0.35em;
+        text-align: center;
+        font-size: 1.55rem;
+        margin: 0 0 8px;
+    }
+
+    div.cvsignature {
+        text-align: right;
+        width: auto;
+        color: var(--muted);
+        margin-bottom: 20px;
+    }
+
+    div.divbox {
+        font-size: 0.92rem;
+
+        h2 {
+            font-size: 1.1rem;
+            margin: 24px 0 12px;
         }
 
-        div.divtablecvtitle {
-            @include tabletitle;
-            display: table-cell;
+        div.divcvgroup {
+            margin-bottom: 16px;
+            break-inside: avoid;
+            width: auto;
+            box-sizing: border-box;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
 
-            &:first-child {
-                border-left-width: 0;
+        div.divcvtable {
+            width: auto;
+            margin-bottom: 6px;
+
+            div.divcvtablerow {
+                display: flex;
+                flex-wrap: wrap;
+                width: auto;
+                border: none;
+                border-bottom: 1px solid var(--border);
+                align-items: baseline;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            div.divtablecvtitle {
+                display: block;
+                flex: 0 0 4.5em;
+                border: none;
+                width: auto;
+                padding: 0.45em 0.5em 0.45em 0;
+                color: var(--muted);
+                font-weight: 600;
+                font-size: 0.85em;
+            }
+
+            div.divtablecvbody {
+                display: block;
+                flex: 1 1 10em;
+                padding: 0.45em 0.5em;
             }
         }
 
-        div.divtablecvbody {
-            display: table-cell;
-            padding: 1em;
+        div.divcvgroupheader div.divtablecvbody {
+            font-weight: bold;
+        }
+
+        div.divtable {
+            display: flex;
+            width: auto;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            align-items: baseline;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            div.divtabletitle {
+                display: block;
+                flex: 0 0 5.5em;
+                border: none;
+                width: auto;
+                padding: 0.45em 0.5em 0.45em 0;
+                color: var(--muted);
+                font-weight: 600;
+                font-size: 0.85em;
+            }
+
+            div.divtablebody {
+                display: block;
+                flex: 1;
+                padding: 0.45em 0.5em;
+                width: auto;
+                border: none;
+
+                div.divskillrow {
+                    &:not(:first-child) {
+                        margin-top: 0.4em;
+                    }
+
+                    span.divskilllabel {
+                        display: inline-block;
+                        width: 4em;
+                        font-weight: bold;
+                    }
+                }
+            }
         }
     }
 
-    div.divtable {
-        @include tablerow;
-        display: flex;
-
-        &:first-child {
-            border-top-width: $basicborderwidth;
+    @media (max-width: 640px) {
+        div.cvbox {
+            margin: 0 auto;
+            border: none;
+            border-radius: 0;
+            padding: 24px 14px 40px;
         }
 
-        div.divtabletitle {
-            @include tabletitle;
-            display: block;
-            flex-basis: 5%;
-            flex-grow: 1;
-            border-right-width: 0;
+        h1.cvtitle {
+            letter-spacing: 0.15em;
+        }
 
-            &:first-child {
-                border-left-width: 0;
+        div.divbox {
+            div.divcvtable div.divcvtablerow,
+            div.divtable {
+                flex-direction: column;
             }
-        }
 
-        div.divtablebody {
-            display: block;
-            padding: 1em;
-            width: 85%;
-            flex-basis: 5%;
-            flex-grow: 19;
-            border-style: solid;
-            border-top-width: 0;
-            border-bottom-width: 0;
-            border-right-width: 0;
-            border-left-width: $basicborderwidth;
-
-            div.divskillrow {
-                &:not(:first-child) {
-                    margin-top: 0.4em;
-                }
-
-                span.divskilllabel {
-                    display: inline-block;
-                    width: 4em;
-                    font-weight: bold;
-                }
+            div.divcvtable div.divtablecvbody,
+            div.divtable div.divtablebody {
+                padding-top: 0;
             }
         }
     }
