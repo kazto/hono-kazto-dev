@@ -1,5 +1,6 @@
 // ===== Modern design system (Top / About) =====
 :root {
+    color-scheme: light;
     --bg: #f6f5f2;
     --surface: #ffffff;
     --text: #232323;
@@ -7,17 +8,6 @@
     --border: #e6e2d9;
     --accent: #232323;
     --radius: 16px;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #1a1a1e;
-        --surface: #232329;
-        --text: #ececec;
-        --muted: #a8a29e;
-        --border: #34343c;
-        --accent: #ffffff;
-    }
 }
 
 * { box-sizing: border-box; }
@@ -204,10 +194,6 @@ a.linkbutton-anchor { text-decoration: none; color: inherit; display: block; hei
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 }
-@media (prefers-color-scheme: dark) {
-    .bento-card:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
-}
-
 .bento-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .bento-card-title { font-weight: 600; font-size: 0.98rem; }
 .bento-card-arrow { color: var(--muted); font-size: 0.85rem; }

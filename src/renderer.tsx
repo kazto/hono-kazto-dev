@@ -8,6 +8,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Kazto Takahashi — Software Engineer. Engineering More Interesting. しごとを、もっと、おもしろく。" />
+        <meta name="color-scheme" content="light" />
         <title>kazto.dev</title>
         <link href={import.meta.env.PROD ? "/static/style.css" : "/src/styles.scss"} rel="stylesheet" type="text/css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
