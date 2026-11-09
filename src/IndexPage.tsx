@@ -47,25 +47,35 @@ const IndexPage = () => {
     return (
         <Layout title="kazto.dev">
             <section className="hero">
-                <p className="hero-eyebrow">Software Engineer — Tokyo</p>
-                <h1 className="hero-name">Kazto Takahashi</h1>
-                <p className="hero-tagline">
-                    Engineering More Interesting.
-                    <span className="hero-tagline-ja">しごとを、もっと、おもしろく。</span>
-                </p>
-                <p className="hero-lead">
-                    サーバサイドを中心に、フロントエンドからインフラ・CI/CDまで。
-                    仕事が『おもしろい』と感じる人を増やしたい、ソフトウェアエンジニアです。
-                </p>
-                <ul className="hero-skills">
-                    {skills.map((s) => (
-                        <li key={s}>{s}</li>
-                    ))}
-                </ul>
-                <div className="hero-actions">
-                    <a className="btn-primary" href="/about">About を見る</a>
-                    <a className="btn-ghost" href="/cv">職務経歴書</a>
+                <div className="hero-text">
+                    <p className="hero-eyebrow">Software Engineer — Tokyo</p>
+                    <h1 className="hero-name">Kazto Takahashi</h1>
+                    <p className="hero-tagline">
+                        Engineering More Interesting.
+                        <span className="hero-tagline-ja">しごとを、もっと、おもしろく。</span>
+                    </p>
+                    <p className="hero-lead">
+                        サーバサイドを中心に、フロントエンドからインフラ・CI/CDまで。
+                        仕事が『おもしろい』と感じる人を増やしたい、ソフトウェアエンジニアです。
+                    </p>
+                    <ul className="hero-skills">
+                        {skills.map((s) => (
+                            <li key={s}>{s}</li>
+                        ))}
+                    </ul>
+                    <div className="hero-actions">
+                        <a className="btn-primary" href="/about">About を見る</a>
+                        <a className="btn-ghost" href="/cv">職務経歴書</a>
+                    </div>
                 </div>
+                <figure className="hero-photo">
+                    <img src="/images/elia-clerici-XIrIWKCQykg-unsplash.webp" alt="" />
+                    <figcaption>
+                        Photo by{' '}
+                        <a href="https://unsplash.com/@ielix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Elia Clerici</a>{' '}
+                        on <a href="https://unsplash.com/">Unsplash</a>
+                    </figcaption>
+                </figure>
             </section>
 
             {groups.map((group) => (
