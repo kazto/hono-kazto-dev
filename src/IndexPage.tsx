@@ -69,12 +69,7 @@ const IndexPage = () => {
                     </div>
                 </div>
                 <figure className="hero-photo">
-                    <img src="/images/elia-clerici-XIrIWKCQykg-unsplash.webp" alt="" />
-                    <figcaption>
-                        Photo by{' '}
-                        <a href="https://unsplash.com/@ielix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Elia Clerici</a>{' '}
-                        on <a href="https://unsplash.com/">Unsplash</a>
-                    </figcaption>
+                    <img src="/images/logo.png" alt="kazto.dev logo" />
                 </figure>
             </section>
 
