@@ -521,6 +521,18 @@ $basicborderwidth: 1px;
             div.divcvtable div.divcvtablerow,
             div.divtable {
                 flex-direction: column;
+                align-items: stretch;
+            }
+
+            // In column direction the row-oriented flex-basis (4.5em / 10em / 5.5em)
+            // would apply to height instead of width, stretching every cell.
+            // Reset it so cells size to their content and take the full row width.
+            div.divcvtable div.divtablecvtitle,
+            div.divcvtable div.divtablecvbody,
+            div.divtable div.divtabletitle,
+            div.divtable div.divtablebody {
+                flex: none;
+                width: auto;
             }
 
             div.divcvtable div.divtablecvbody,
