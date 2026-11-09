@@ -36,7 +36,7 @@ const groups: Array<{ heading: string; links: LinkItem[] }> = [
             { title: 'note', url: 'https://note.com/kazto_dev', description: 'エッセイ・雑記' },
             { title: 'Speaker Deck', url: 'https://speakerdeck.com/kazto', description: '登壇資料' },
             { title: 'Blog', url: 'https://blog.kazto.dev', description: 'メンテナンス中' },
-            { title: 'tamamoku .tokyo', url: 'https://tamamoku.tokyo/', description: '多摩のコミュニティ' },
+            { title: 'tamamoku .tokyo', url: 'https://tamamoku.tokyo/', description: '多摩地区もくもく会（活動休止中）' },
         ],
     },
 ]

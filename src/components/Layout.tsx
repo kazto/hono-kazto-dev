@@ -18,11 +18,6 @@ const Layout: FC<PropsWithChildren<Props>> = ({ children, title }) => {
             <main>{children}</main>
             <footer className="site-footer">
                 <span>© Kazto Takahashi — kazto.dev</span>
-                <span className="site-footer-photo">
-                    Photo by{' '}
-                    <a href="https://unsplash.com/@ielix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Elia Clerici</a>{' '}
-                    on <a href="https://unsplash.com/">Unsplash</a>
-                </span>
             </footer>
         </div>
     )
