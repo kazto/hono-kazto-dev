@@ -12,10 +12,14 @@ const anonymizeBelongsTo = (belongsToList: string[]): BelongsToDictionary => {
     const belongsTo: BelongsToDictionary = {}
     let anonymous = 'A社'
     for (const b of belongsToList) {
-        if (!(b in belongsTo)) {
-            belongsTo[b] = anonymous
-            anonymous = String.fromCodePoint((anonymous.codePointAt(0) ?? 65) + 1) + '社'
+        if (b in belongsTo) continue
+        // 個人事業は社名ではないので、表記も連番もそのままにする
+        if (b === 'フリーランス') {
+            belongsTo[b] = b
+            continue
         }
+        belongsTo[b] = anonymous
+        anonymous = String.fromCodePoint((anonymous.codePointAt(0) ?? 65) + 1) + '社'
     }
     return belongsTo
 }
